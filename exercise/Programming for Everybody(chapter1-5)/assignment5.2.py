@@ -10,7 +10,7 @@ while True:
     except:
         print('Invalid input')
         continue
-    
+
     if largest is None:
         largest = i
     elif i > largest:
