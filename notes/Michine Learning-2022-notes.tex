@@ -1,9 +1,64 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{xcolor}
 \begin{document}
-	\section{Basic Mathematics}
-    \paragraph{}
-    This session covers typesetting mathematics in LaTeX. This text contains two mathematical expressions: 
+    \tableofcontents
+    \newpage
+    \section{Supervised Machine Learning: Regression and Classification}
+    \subsection{Week 1 linear Regression with One Variable}
+	\subsubsection{Learning Objectives}
+    \begin{itemize}
+	    \item Define machine learning
+        \item Define supervised learning
+        \item Define unsupervised learning
+        \item Write and run Python code in Jupyter Notebooks
+        \item Define a regression model
+        \item Implement and visualize a cost function
+        \item Implement gradient descent
+        \item Optimize a regression model using gradient descent
+    \end{itemize}  
+    \subsubsection*{Some notations}
+    \begin{itemize}
+	    \item In the training set, there are features ($x$) and targets ($y$)
+        \item $x$ is the input variable (feature)
+        \item $y$ is the output variable (target)
+        \item $m = \text{number of training examples}$
+        \item $(x,y) = \text{single training example}$
+        \item \textcolor{red}{$(x^{(i)},y^{(i)}) = i^{th}\text{ training example } (1^{st},2^{nd},3^{rd}...)$ }
+        \item \textcolor{red}{$\hat{y}$ means prediction(estimated y)}
+        \item $f$ is the function (model)(hypothesis)
+        \item $f_{w,b}(x)=wx+b$
+        \item Parameters: $w,b$
+        \item \textcolor{red}{Squared error cost function: $J(w,b)=\frac{1}{2m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})^2$}
+        \item Find $w,b$ : $\hat{y}^{(i)}\text{ is close to }y^{(i)}\text{ for all }(x^{(i)},y^{(i)})$
+    \end{itemize} 
+    \[ J(w,b)=\frac{1}{2m}\sum_{i=1}^{m}(f_{w,b}(x^{(i)})-y^{(i)})^2 \]
+    \begin{itemize}
+        \item Goal: $minimizeJ(w,b)$
+    \end{itemize}
+    \subsubsection{Gradient Descent}
+    repeat until convergence\{
+    \[ w=w-\alpha\frac{\partial}{\partial w}J(w,b) \]
+    \[ b=b-\alpha\frac{\partial}{\partial b}J(w,b) \]
+    \} \newline
+    Simultaneously update w and b \newline
+    $\alpha\text{ is the learning rate(usually between 0 and 1, maybe 0.01)}$ \newline
+    $\frac{\partial}{\partial w}J(w,b)\text{ and }\frac{\partial}{\partial b}J(w,b)\text{ are derivative terms}$ \newline
+    Near a local minimum,
+    \begin{itemize}
+        \item Derivative becomes smaller
+        \item Update steps become smaller
+    \end{itemize}
+    \subsubsection{Gradient descent for linear regression}
+    \[\frac{\partial}{\partial w}J(w,b) = \frac{1}{m}\sum_{i=1}^{m}(f_{w,b}(x)^{(i)}-y^{(i)})x^{(i)}\]
+    \[\frac{\partial}{\partial b}J(w,b) = \frac{1}{m}\sum_{i=1}^{m}(f_{w,b}(x)^{(i)}-y^{(i)})\]
+    repeat until convergence\{
+    \[w = w - \alpha\frac{1}{m}\sum_{i=1}^{m}(f_{w,b}(x)^{(i)}-y^{(i)})x^{(i)}\]
+    \[b = b - \alpha\frac{1}{m}\sum_{i=1}^{m}(f_{w,b}(x)^{(i)}-y^{(i)})\]
+    \} 
+
+
+    \newpage
     $ 2^{2} + 2^{2} = 8$ and $ 2 \times 2 = 4$
 
     \[ \cos^2 \theta + \sin^2 \theta = 1\]
